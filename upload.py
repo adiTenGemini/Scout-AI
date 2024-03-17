@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import modelling
 from sklearn.cluster import KMeans
 
 # Define the PlayerRecommendationSystem class and methods
@@ -45,6 +46,15 @@ def pre_process(df):
     
     return df
 
+# Define a function to display player select dropdown based on team selection
+def select_player_by_team(df):
+    selected_team = st.sidebar.selectbox("Select Team", df['Team'].unique())
+
+    players_in_selected_team = df[df['Team'] == selected_team]['Player'].unique()
+
+    selected_player = st.sidebar.selectbox("Select Player", players_in_selected_team)
+
+    return selected_player
 
 
 # main function for app's UI/UX
