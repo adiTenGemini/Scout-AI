@@ -53,6 +53,10 @@ def plot_radar_chart(player_data1, player_data2):
 
 @st.cache_data
 def plot_radar_and_bar_chart(player_data1, player_data2):
+    """
+    plots radar and bar chart
+    """
+    
     # Define the attributes for the radar chart
     attributes = list(player_data1.index)
 
